@@ -7,6 +7,7 @@ import AboutUs from '../route/AboutUs';
 import Freeart from '../route/Freeart';
 import Page from '../route/Page';
 import { dbService } from '../fbase';
+import NaverCallback from '../route/NaverCallback';
 
 function App() {
   const [nweets, setNweets] = useState([]);
@@ -38,6 +39,7 @@ useEffect(() =>{
             <Route exact path="/infosec" element = {<Infosec/>}/>
             <Route exact path="/mypage" element = {<MyPage/>}/>
             <Route exact path="/aboutus" element = {<AboutUs/>}/>
+            <Route exact path="/NaverCallback" element = {<NaverCallback/>}/>
             <Route exact path="/freeart" element = {<Freeart nweets={nweets}/>}/>
             
             {nweets && nweets.map((nweet) => {

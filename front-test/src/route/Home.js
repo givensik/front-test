@@ -8,6 +8,8 @@ import { firebaseInstance } from '../fbase';
  import {authService} from "../fbase";
 
 //const toggleAccount = () => setNewAccount((prev) => !prev)
+import NaverLogin from 'react-naver-login';
+
 
 
 const Home = () => {
@@ -52,7 +54,13 @@ const Home = () => {
                 
                     <Item>
                         <button onClick={onSocilaClick} name="google">구글 로그인</button>
-                        <button>네이버 로그인</button>
+                        <NaverLogin 
+                          clientId="Juptoue4aKw3paUHGszw"
+                          callbackUrl="http://127.0.0.1:3000/NaverCallback"
+                          render={(props) => <button onClick={props.onClick}>Naver Login</button>}
+                          onSuccess={(naverUser) => console.log(naverUser)}
+                          onFailure={() => console.log("Error!")}
+                        />
                         <button>카카오 로그인</button>
                     </Item>
                 
