@@ -11,20 +11,15 @@ import { firebaseInstance } from '../fbase';
 import NaverLogin from 'react-naver-login';
 import { useState } from 'react';
 import LogOut from './LogOut';
+import Auth from './Auth';
+import Login from './Login';
 
-const Home = () => {
 
 
-  const onSocilaClick = async (event) => {
-    const {target: {name}} = event;
-    let provider;
-    console.log('hi');
-    if(name === "google"){
-      provider = new firebaseInstance.auth.GoogleAuthProvider();
-    }
-    const data = await authService.signInWithPopup(provider);
-    console.log(data);
-  }
+const Home = (props) => {
+  // console.log("Hello")
+  // console.log(props.isLoggedIn)
+  
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -55,15 +50,16 @@ const Home = () => {
                 <Grid item xs={3}>
                 
                     <Item>
-                        <button onClick={onSocilaClick} name="google">구글 로그인</button>
+                        {/* <button onClick={onSocilaClick} name="google">구글 로그인</button>
                         <NaverLogin 
                           clientId="Juptoue4aKw3paUHGszw"
                           callbackUrl="http://127.0.0.1:3000/NaverCallback"
-                          render={(props) => <button onClick={props.onClick}>Naver Login</button>}
+                          render={(props) => <button onClick={props.onClick}>NaverLogin</button>}
                           onSuccess={(naverUser) => console.log(naverUser)}
                           onFailure={() => console.log("Error!")}
                         />
-                        <LogOut></LogOut>
+                        <LogOut></LogOut> */}
+                        <Login isLoggedIn = {props.isLoggedIn}></Login>
                     </Item>
                 
                 </Grid>
@@ -89,7 +85,7 @@ const Home = () => {
     return(
         <>
            <Link to='/'>ALERT</Link>
-            
+           <Auth></Auth>
             <button>검색</button>
             <BasicGrid></BasicGrid>
             

@@ -10,6 +10,7 @@ import { dbService } from '../fbase';
 import NaverCallback from '../route/NaverCallback';
 
 function App() {
+  const [isLoggedIn, setLogin] = useState(false);
   const [nweets, setNweets] = useState([]);
   const getNweets = async() =>{
     const dbNweets =  await dbService.collection("freeart").get()                   //서버(firebase)로부터 게시글이 저장되어있는 폴더를 연결한다
@@ -25,17 +26,23 @@ function App() {
       });
   });
 };
-useEffect(() =>{
-  getNweets();
-  
- },[])
+useEffect(() => {
+  if(document.cookie){
+    setLogin(true);
+    console.log("login ok");
+  }else{
+    setLogin(false);
+  }
+}, []);
+
+ 
   
   
   return (
     <Router>
       <Routes>
 
-            <Route exact path="/" element = {<Home />}/>
+            <Route exact path="/" element = {<Home isLoggedIn ={isLoggedIn}/>}/>
             <Route exact path="/infosec" element = {<Infosec/>}/>
             <Route exact path="/mypage" element = {<MyPage/>}/>
             <Route exact path="/aboutus" element = {<AboutUs/>}/>
