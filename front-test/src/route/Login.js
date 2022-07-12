@@ -6,7 +6,9 @@ import loginButton from 'react-naver-login'
 
 function Login(props) {
     // console.log(props.isLoggedIn)
-  
+    window.reloding = ()=>{
+        document.location.reload();
+    }
     return (
         <>
         {props.isLoggedIn ? (<div>
@@ -14,11 +16,11 @@ function Login(props) {
         </div>) : (<div>
             <button name="google">구글 로그인</button>
             <NaverLogin 
-                              clientId="Juptoue4aKw3paUHGszw"
-                              callbackUrl="http://127.0.0.1:3000/NaverCallback"
-                              render={(props) => <button onClick={props.onClick}>NaverLogin</button>}
-                              onSuccess={(naverUser) => console.log(naverUser)}
-                              onFailure={() => console.log("Error!")}
+                clientId="Juptoue4aKw3paUHGszw"
+                callbackUrl="http://127.0.0.1:3000/NaverCallback"
+                render={(props) => <button onClick={props.onClick}>NaverLogin</button>}
+                onSuccess={() => console.log("Good") }
+                onFailure={() => console.log("Error!")}
                               
             />
         </div>) }

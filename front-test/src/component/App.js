@@ -33,7 +33,7 @@ useEffect(() => {
   }else{
     setLogin(false);
   }
-}, []);
+}, [document.cookie]);
 
  
   

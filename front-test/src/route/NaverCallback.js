@@ -15,7 +15,7 @@ function NaverCallback() {
     }else{
         // console.log("no..")
     }
-      
+    
     window.close();
   
   // return (
