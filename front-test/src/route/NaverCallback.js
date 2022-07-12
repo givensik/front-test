@@ -7,7 +7,7 @@ function NaverCallback() {
   const token = window.location.href.split('=')[1].split('&')[0];
 
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
-    console.log(cookies.token)
+    // console.log(cookies.token)
 
     if(token){
         setCookie('tokenid',token)

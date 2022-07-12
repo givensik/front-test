@@ -7,7 +7,7 @@ function LogOut(props) {
   
   const [login, setLogin] = useState(props.isLoggedIn);
   // console.log("로그아웃 컴포넌트임");
-  // console.log(login);
+  console.log(login);
   // console.log(document.cookie);
   const [, , removeCookie] = useCookies('token');
   if(login === false){
