@@ -9,10 +9,12 @@ import { firebaseInstance } from '../fbase';
 
 //const toggleAccount = () => setNewAccount((prev) => !prev)
 import NaverLogin from 'react-naver-login';
-
-
+import { useState } from 'react';
+import LogOut from './LogOut';
 
 const Home = () => {
+
+
   const onSocilaClick = async (event) => {
     const {target: {name}} = event;
     let provider;
@@ -61,11 +63,11 @@ const Home = () => {
                           onSuccess={(naverUser) => console.log(naverUser)}
                           onFailure={() => console.log("Error!")}
                         />
-                        <button>카카오 로그인</button>
+                        <LogOut></LogOut>
                     </Item>
                 
                 </Grid>
-              
+                
               <Grid item xs={3}>
                 
                 <Item>대외활동</Item>

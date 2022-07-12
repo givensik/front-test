@@ -6,14 +6,17 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
+import { CookiesProvider, useCookies } from 'react-cookie';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
     
       
       <Container fixed>
-        
-        <App />
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
       </Container>
     
   
