@@ -2,12 +2,16 @@ import React from 'react'
 import { useCookies } from 'react-cookie';
 import {Link} from 'react-router-dom'
 
+
+import { useSelector, useDispatch } from 'react-redux'
+
 function NaverCallback() {
+  const dispatch = useDispatch();
 
   const token = window.location.href.split('=')[1].split('&')[0];
 
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
-    // console.log(cookies.token)
+  // console.log(cookies.token)
 
     if(token){
         setCookie('tokenid',token)

@@ -8,14 +8,36 @@ import Container from '@mui/material/Container';
 
 import { CookiesProvider, useCookies } from 'react-cookie';
 
+import { legacy_createStore as createStore } from 'redux';
+import { Provider} from 'react-redux'
+function reducer(currentstate, action){
+  if(currentstate === undefined){
+    return {
+      login : 1
+    }
+  }
+  let newState ={...currentstate}
+  if(action.type === 'TOKEN_CREATE'){
+    newState.login = 2;
+    return newState
+  }
+}
+const store = createStore(reducer);
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
 root.render(
   
     
       
       <Container fixed>
         <CookiesProvider>
-          <App />
+          <Provider store ={store}>
+            <App />
+          </Provider>
         </CookiesProvider>
       </Container>
     

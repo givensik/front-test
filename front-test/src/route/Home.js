@@ -14,12 +14,17 @@ import LogOut from './LogOut';
 import Auth from './Auth';
 import Login from './Login';
 
+import {useSelector, useDispatch} from 'react-redux';
 
 
 const Home = (props) => {
   // console.log("Hello")
   // console.log(props.isLoggedIn)
-  
+  const login = useSelector((state)=>{ return state.login })
+  console.log(login);
+  const dispatch = useDispatch();
+
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -66,7 +71,14 @@ const Home = (props) => {
                 
               <Grid item xs={3}>
                 
-                <Item>대외활동</Item>
+                <Item>
+                  <div onClick={()=>{
+                    dispatch({type : 'TOKEN_CREATE', login : 2})
+                  }}>
+                    +
+                  </div>
+
+                </Item>
                 
               </Grid>
               <Grid item xs={3}>
